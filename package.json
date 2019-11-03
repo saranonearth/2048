@@ -2,6 +2,10 @@
   "name": "2048",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "npm": "5.8.0",
+    "node": "10.15.2"
+  },
   "dependencies": {
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
