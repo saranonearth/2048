@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { Swipe, Position } from "react-swipe-component";
+import React, { useState, useEffect } from 'react';
+import { Swipe, Position } from 'react-swipe-component';
 
-import Game from "./Game";
-import NumContainer from "./components/NumContainer";
-import Grid from "./components/Grid";
-import Menu from "./components/Menu";
+import Game from './Game';
+import NumContainer from './components/NumContainer';
+import Grid from './components/Grid';
+import Menu from './components/Menu';
 
 function App() {
   const [gameData, setGameSettings] = useState({
@@ -19,6 +19,7 @@ function App() {
     e.preventDefault();
     if (e.keyCode >= 37 && e.keyCode <= 40) {
       var direction = e.keyCode - 37;
+      console.log(direction);
       var gd = gameSettings.move(direction);
       setGameSettings({
         ...gameData,
@@ -26,48 +27,54 @@ function App() {
       });
     }
   };
-
+  const swipe = dir => {
+    var gd = gameSettings.move(dir);
+    setGameSettings({
+      ...gameData,
+      gameSettings: gd
+    });
+  };
   useEffect(() => {
-    window.addEventListener("keydown", e => {
+    window.addEventListener('keydown', e => {
       keyDown(e);
     });
     return () => {
-      window.removeEventListener("keydown", e => {
+      window.removeEventListener('keydown', e => {
         keyDown(e);
       });
     };
   }, []);
 
   function onSwipeLeft() {
-    console.log("left");
+    swipe(0);
   }
   function onSwipeRight() {
-    console.log("right");
+    swipe(2);
   }
   function onSwipeDown() {
-    console.log("Down");
+    swipe(3);
   }
   function onSwipeUp() {
-    console.log("Up");
+    swipe(1);
   }
   return (
     <>
       <Swipe
-        className=".wrapper-for-4"
+        nodeName='div'
+        className='wrapper-for-4'
         onSwipedLeft={onSwipeLeft}
         onSwipedRight={onSwipeRight}
         onSwipedDown={onSwipeDown}
         onSwipedUp={onSwipeUp}
       >
-        Demo
-      </Swipe>
-      <div className={"wrapper-for-4"}>
-        <Menu newGame={newGame} gameSettings={gameSettings} />
-        <div className={"container-for-4"}>
-          <Grid gameSettings={gameSettings.gd} />
-          <NumContainer gd={gameSettings.gd} />
+        <div className={'wrapper-for-4'}>
+          <Menu newGame={newGame} gameSettings={gameSettings} />
+          <div className={'container-for-4'}>
+            <Grid gameSettings={gameSettings.gd} />
+            <NumContainer gd={gameSettings.gd} />
+          </div>
         </div>
-      </div>
+      </Swipe>
     </>
   );
 }

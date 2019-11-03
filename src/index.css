@@ -14,16 +14,17 @@ html {
 .header {
   margin-top: 20px;
 }
+
 .grid-container {
   -webkit-box-ordinal-group: 2;
   -webkit-order: 1;
   -ms-flex-order: 1;
   order: 1;
 }
+
 .wrapper-for-4 {
   width: 480px;
   margin: 0 auto;
-  position: relative;
 }
 
 .grid-cell {
@@ -40,6 +41,7 @@ html {
   color: #fff;
   background-color: rgb(83, 40, 110);
 }
+
 .num-cell {
   width: 100px;
   height: 100px;
@@ -54,6 +56,7 @@ html {
   color: #fff;
   position: absolute;
 }
+
 .container-for-4 {
   width: 440px;
   height: 440px;
@@ -63,6 +66,7 @@ html {
   outline: none;
   position: relative;
 }
+
 .cell-new {
   -webkit-animation-duration: 0.2s;
   animation-duration: 0.2s;
@@ -78,26 +82,31 @@ html {
   -webkit-animation-delay: 0.5s;
   animation-delay: 0.5s;
 }
+
 @-webkit-keyframes newTile {
   from {
     -webkit-transform: scale(0);
     transform: scale(0);
   }
+
   to {
     -webkit-transform: scale(1);
     transform: scale(1);
   }
 }
+
 @keyframes newTile {
   from {
     -webkit-transform: scale(0);
     transform: scale(0);
   }
+
   to {
     -webkit-transform: scale(1);
     transform: scale(1);
   }
 }
+
 .cell-merged {
   z-index: 20;
   -webkit-animation: pop 200ms ease 100ms;
@@ -107,101 +116,122 @@ html {
   -moz-animation-fill-mode: backwards;
   animation-fill-mode: backwards;
 }
+
 @-webkit-keyframes pop {
   0% {
     -webkit-transform: scale(0);
     -moz-transform: scale(0);
     transform: scale(0);
   }
+
   50% {
     -webkit-transform: scale(1.2);
     -moz-transform: scale(1.2);
     transform: scale(1.2);
   }
+
   100% {
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
     transform: scale(1);
   }
 }
+
 @-moz-keyframes pop {
   0% {
     -webkit-transform: scale(0);
     -moz-transform: scale(0);
     transform: scale(0);
   }
+
   50% {
     -webkit-transform: scale(1.2);
     -moz-transform: scale(1.2);
     transform: scale(1.2);
   }
+
   100% {
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
     transform: scale(1);
   }
 }
+
 @keyframes pop {
   0% {
     -webkit-transform: scale(0);
     -moz-transform: scale(0);
     transform: scale(0);
   }
+
   50% {
     -webkit-transform: scale(1.2);
     -moz-transform: scale(1.2);
     transform: scale(1.2);
   }
+
   100% {
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
     transform: scale(1);
   }
 }
+
 .cell-color-2 {
   background: #7d66ff;
   border-color: #faf8ef;
 }
+
 .cell-color-4 {
   background: #f5bd6a;
   border-color: #eae0c8;
 }
+
 .cell-color-8 {
   background: #fb836f;
   border-color: #f59563;
 }
+
 .cell-color-16 {
   background: #5ab5ff;
   border-color: #3399ff;
 }
+
 .cell-color-32 {
   background: #dd599b;
   border-color: #ffa333;
 }
+
 .cell-color-64 {
   background: #00c176;
   border-color: #cef030;
 }
+
 .cell-color-128 {
   background: #e21b5a;
   border-color: #e8d8ce;
 }
+
 .cell-color-256 {
   background: #4dfdd1;
   border-color: #990303;
 }
+
 .cell-color-512 {
   background: #e21b5a;
   border-color: #6ba5de;
 }
+
 .cell-color-1024 {
   background: #e21b5a;
   border-color: #dcad60;
 }
+
 .cell-color-2048 {
   background: #e21b5a;
   border-color: #b60022;
 }
+
 select.select-cell-num {
   width: 80px;
   height: 40px;
@@ -225,27 +255,33 @@ select.select-cell-num {
   cursor: pointer;
   outline: none;
 }
+
 select.select-cell-num option {
   padding: 4px 10px 4px 10px;
   font-size: 11pt;
   font-weight: normal;
 }
+
 select.select-cell-num option:hover {
   background: #61ccfd;
   padding-left: 20px;
 }
+
 select.select-cell-num option[selected] {
   font-weight: bold;
 }
+
 select.select-cell-num option:nth-child(even) {
   background-color: #f5f5f5;
 }
+
 label.lbl-select {
   position: relative;
   display: inline-block;
   float: right;
   margin-top: 15px;
 }
+
 label.lbl-select::after {
   content: "\25bc";
   position: absolute;
@@ -266,7 +302,7 @@ label.lbl-select::after {
 .title {
   font-family: "Subway";
   color: rgb(252, 221, 81);
-  font-size: 4.5em;
+  font-size: 9em;
   text-align: center;
   margin-bottom: 10px;
   margin-top: 10px;
@@ -299,6 +335,7 @@ label.lbl-select::after {
   content: "Score";
   display: block;
 }
+
 .bestScore::before {
   content: "Best Score";
   display: block;
@@ -322,11 +359,13 @@ label.lbl-select::after {
 @media (max-width: 800px) {
   .title {
     margin-top: -40px;
-    font-size: 4em;
+    font-size: 7em;
   }
+
   .wrapper-for-4 {
-    transform: scale(0.7);
+    transform: scale(0.8);
     padding: 0;
-    margin-left: -55px;
+    margin-left: -45px;
+    margin-top: -130px;
   }
 }
