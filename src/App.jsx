@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Swipe, Position } from "react-swipe-component";
 
 import Game from "./Game";
 import NumContainer from "./components/NumContainer";
@@ -9,7 +10,7 @@ function App() {
   const [gameData, setGameSettings] = useState({
     gameSettings: new Game()
   });
-
+  const { gameSettings } = gameData;
   const newGame = () => {
     document.location.reload(true);
   };
@@ -37,17 +38,36 @@ function App() {
     };
   }, []);
 
+  function onSwipeLeft() {
+    console.log("left");
+  }
+  function onSwipeRight() {
+    console.log("right");
+  }
+  function onSwipeDown() {
+    console.log("Down");
+  }
+  function onSwipeUp() {
+    console.log("Up");
+  }
   return (
     <>
-      <h1>
-        <div className={"wrapper-for-4"}>
-          <Menu newGame={newGame} gameSettings={gameSettings} />
-          <div className={"container-for-4"}>
-            <Grid gameSettings={gameSettings.gd} />
-            <NumContainer gd={gameSettings.gd} />
-          </div>
+      <Swipe
+        className=".wrapper-for-4"
+        onSwipedLeft={onSwipeLeft}
+        onSwipedRight={onSwipeRight}
+        onSwipedDown={onSwipeDown}
+        onSwipedUp={onSwipeUp}
+      >
+        Demo
+      </Swipe>
+      <div className={"wrapper-for-4"}>
+        <Menu newGame={newGame} gameSettings={gameSettings} />
+        <div className={"container-for-4"}>
+          <Grid gameSettings={gameSettings.gd} />
+          <NumContainer gd={gameSettings.gd} />
         </div>
-      </h1>
+      </div>
     </>
   );
 }
