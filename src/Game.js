@@ -1,4 +1,4 @@
-var Tile = function(value, column, row, isNew) {
+var Tile = function (value, column, row, isNew) {
   this.value = value || 0;
   this.row = row || -1;
   this.column = column || -1;
@@ -46,8 +46,8 @@ class Game {
     var pool = [];
     var state;
     var self = this;
-    this.gd.forEach(function(row, keyRow) {
-      row.forEach(function(elem, keyCol) {
+    this.gd.forEach(function (row, keyRow) {
+      row.forEach(function (elem, keyCol) {
         if (elem.value >= self.MaxScore) {
           state = true;
         } else if (elem.value === 0) {
@@ -86,8 +86,8 @@ class Game {
   }
 
   clearOldTiles() {
-    this.gd.forEach(function(row, keyRow) {
-      row.forEach(function(elem, keyCol) {
+    this.gd.forEach(function (row, keyRow) {
+      row.forEach(function (elem, keyCol) {
         elem.isNew = false;
         elem.isMerged = false;
       });
@@ -108,14 +108,14 @@ class Game {
   moveLeft() {
     var hasChanged = false;
     for (var row = 0; row < this.size; ++row) {
-      var currentRow = this.gd[row].filter(function(tile) {
+      var currentRow = this.gd[row].filter(function (tile) {
         return tile.value !== 0;
       });
       var resultRow = [];
       for (var target = 0; target < this.size; ++target) {
-        var targetTile = currentRow.length
-          ? currentRow.shift()
-          : this.addTile();
+        var targetTile = currentRow.length ?
+          currentRow.shift() :
+          this.addTile();
         if (currentRow.length > 0 && currentRow[0].value === targetTile.value) {
           var tile1 = targetTile;
           targetTile = this.addTile(targetTile.value);
@@ -145,8 +145,8 @@ class Game {
     return res;
   }
   setPositions() {
-    this.gd.forEach(function(row, rowIndex) {
-      row.forEach(function(tile, columnIndex) {
+    this.gd.forEach(function (row, rowIndex) {
+      row.forEach(function (tile, columnIndex) {
         tile.oldRow = tile.row;
         tile.oldColumn = tile.column;
         tile.row = rowIndex;
@@ -155,4 +155,5 @@ class Game {
     });
   }
 }
-module.exports = Game;
+
+export default Game;
